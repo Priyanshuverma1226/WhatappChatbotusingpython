@@ -1,0 +1,52 @@
+from tkinter import *
+def sent():
+    try :
+        import pywhatkit
+        pywhatkit.sendwhatmsg(f"+91{phone.get()}",meassage.get(),hour.get(),mi.get())
+    except:
+        r=Tk()
+        r.title("Warning")
+        r.minsize(500,100)
+        r.maxsize(500,100)
+        h=Label(r,text="Not Sent the Automation Please Check The Internet Connection",font=("Agency FB",18,"bold"))
+        h.place(x=10,y=10)
+        b2=Button(r,text="Try Again",font=("Agency FB",10),command=sent,fg="green",width=20)
+        b2.place(x=100,y=50)
+        b3=Button(r,text="Exit",font=("Agency FB",10),command=exit,fg="Red",width=20)
+        b3.place(x=300,y=50)
+        
+        r.mainloop()
+root=Tk()
+# Varible
+phone=StringVar()
+meassage=StringVar()
+hour=IntVar()
+mi=IntVar()
+#  Set Size Of Screen
+root.minsize(500,500)
+root.maxsize(500,500)
+# Make Widgets in screen
+header=Label(text="Whatapp Automation Using Python ",font=("Lazy Dog",20,"bold"))
+header.place(x=80,y=25)
+header2=Label(text="Follow ig-priyanshu__verma__1226",font=("Agency FB",15,"bold"),fg="red")
+header2.place(x=140,y=70)
+number=Label(text="Enter the Phone Number :- ",font=("Agency FB",15),fg="black")
+number.place(x=10,y=150)
+number2=Entry(text=phone,font=("Agency FB",15),fg="black")
+number2.place(x=250,y=150)
+mess=Label(text="Enter the Messsge:- ",font=("Agency FB",15),fg="black")
+mess.place(x=10,y=200)
+mess2=Entry(text=meassage,font=("Agency FB",15),fg="black",width=30)
+mess2.place(x=250,y=200)
+time=Label(text="Enter the Time:- ",font=("Agency FB",15),fg="black")
+time.place(x=10,y=250)
+timeh=Entry(text=hour,font=("Agency FB",15),fg="black",width=3)
+timeh.place(x=250,y=250)
+colon=Label(text=":",font=("Agency FB",25),fg="black")
+colon.place(x=275,y=235) 
+timem=Entry(text=mi,font=("Agency FB",15),fg="black",width=3)
+timem.place(x=290,y=250)
+b1=Button(text="Send The Message ",font=("Agency FB",15),command=sent,fg="green")
+b1.place(x=200,y=350)
+root.title("Whatapp Automation")
+root.mainloop()
